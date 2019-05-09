@@ -59,11 +59,12 @@ var handleFormSubmit = function(type) {
     
     });
   }
-  else if (type === "sign"){
+  else if (type === "sign-up"){
   $.post("/api/users", {
     username: username,
     password: password
   }).then(function(data){
+    console.log(data);
     //go to game page
   })
   }
@@ -80,7 +81,7 @@ $("#log-in").on("click", function(e){
 
 $("#sign-up").on("click", function(e){
   e.preventDefault();
-  handleFormSubmit("log-in");
+  handleFormSubmit("sign-up");
 
 })
 
