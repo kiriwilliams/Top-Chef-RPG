@@ -1,7 +1,8 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
+  // add a new user if none exists
+  //returns false if username is already taken
   app.post("/api/users", function(req, res) {
     db.users.findOrCreate({
       where:{
@@ -15,15 +16,22 @@ module.exports = function(app) {
           {where: {username: req.body.username}},
         ).then(function(results){
           console.log(results);
-        })
+        });
     }
-      res.send(user);
+      res.send(created);
     });
   });
 
-  // Create a new example
-  app.get("/api/users", function(req, res) {
-    db.users.findOne(req.body).then(function(result) {
+  //check a user login
+  app.get("/api/users/:username", function(req, res) {
+    console.log(req.params.username);
+    db.users.findOne({
+      where: {
+        username: req.params.username
+      }
+    }).then(function(result) {
+      console.log(result);
+      // res.send(result);
       res.json(result);
     });
   });
