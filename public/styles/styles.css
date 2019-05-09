@@ -1,6 +1,13 @@
+html,body{
+  height: 100%;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
 body{
   background-color: #ccf7ff;
+}
+.btn{
+  margin: 3px;
 }
