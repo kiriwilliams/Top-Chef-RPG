@@ -1,9 +1,6 @@
 {
   "development": {
-    "username": "root",
-    "password": "",
-    "database": "topchef_db",
-    "host": "localhost",
+    "use_env_variable": "LOCAL_URL",
     "dialect": "mysql"
   },
   "test": {

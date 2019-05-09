@@ -43,10 +43,10 @@ var handleFormSubmit = function(type) {
   };
   console.log(user);
 
-  if (!(user.username && user.password)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+  // if (!(user.username && user.password)) {
+  //   alert("You must enter an example text and description!");
+  //   return;
+  // }
 
   if(type === "log"){
     API.loginUser(user).then(function() {
@@ -59,7 +59,7 @@ var handleFormSubmit = function(type) {
     
     });
   }
-  else if (type === "sign-up"){
+  else if (type === "sign"){
   $.post("/api/users", {
     username: username,
     password: password
