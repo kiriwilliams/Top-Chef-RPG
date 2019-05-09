@@ -8,6 +8,21 @@ $(document).ready(function(){
         getDish(id);
         getDishScore(selected_dish, character, npc);        
     })
+
+    //maybe neccesary create js
+    $(document).on("submit", ".createUser", function(event){
+        event.preventDefault();        
+        var newData = {
+            username: $("#username").val().trim(),
+            password: $("#password").val().trim()
+        }
+        $.ajax("/api/users", {
+            type: "POST",
+            data: newData
+        }).then(function(){
+
+        })
+    })
     
     //update environment when new one selected
     function updateEnv(event){
@@ -19,6 +34,7 @@ $(document).ready(function(){
                 environment = data;
             });
         getChar();
+        getNPC(environment.id);
     }
 
 //PAGE .js GLOBAL VARIABLES
@@ -26,6 +42,7 @@ var selected_dish = {};
 var character = {};
 var npc = {};
 var environment;
+var user = {};
 
 // PAGE .js FUNCTION TO GET THE DISH MODIFIERS
 function getDish(dish_id){
@@ -124,4 +141,13 @@ function levelUp ( skill, newValue ){
         console.log(result);
     });
 }
+// PAGE .js FUNCTION TO GET THE NPC ASSOCIATED TO THE ENVIRONMENT
+function getNPC (env_id) {
+    $.ajax({
+        method:"GET",
+        url: "api/npc/"+env_id
+    }).then(function(result) {
+        npc = result;
+    });
+};
 });
