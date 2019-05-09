@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes){
         skill_I: DataTypes.STRING,
     });
     Character.associate = function(models) {
-        Character.belongsTo(models.environments, {
+        Character.belongsTo(models.users, {
           foreignKey: {
             allowNull: false
           }
