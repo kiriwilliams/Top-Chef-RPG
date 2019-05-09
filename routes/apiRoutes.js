@@ -1,24 +1,37 @@
-var db = require("../models");
-
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+// API CALL TO GET THE DISH MODIFIERS AT A SPECIFIC ENVIRONMENT
+app.get("/api/dish/:id", function(req, res) {
+    db.dishes.findOne({
+        where: {
+        id: req.params.id,
+        }
+    }).then(function(result) {
+        console.log(result);    
+        res.json(result);
     });
-  });
+});
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+// API CALL TO GET THE SELECTED CHARACERS STATS 
+app.get("/api/character/:id", function(req, res) {
+    db.characters.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(result){
+        console.log(result);
+        res.json(result);
     });
-  });
+});
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+// API CALL TO UPDATE THE SKILL OF A CHARACTER 
+app.put("/api/update/:skill", function(req, res){
+    db.characters.update(
+        req.body,
+        {
+            where: {
+                id: req.body.id
+            }
+        }
+    ).then(function(result) {
+        res.json(result);
     });
-  });
-};
+});
