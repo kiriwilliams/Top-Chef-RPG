@@ -15,7 +15,7 @@ module.exports = function(app){
 
     // API CALL TO GET THE SELECTED CHARACERS STATS 
     app.get("/api/character/:id", function(req, res) {
-        db.characters.findOne({
+        db.Character.findOne({
             where: {
                 id: req.params.id
             }
@@ -28,7 +28,7 @@ module.exports = function(app){
     //API CALL TO GET CHARACTERS OF A USER
     app.get("/api/characters/:userId", function(req, res){
         console.log(req.params.userId);
-        db.characters.findAll({
+        db.Character.findAll({
             where: {
                 userId: req.params.userId
             }
