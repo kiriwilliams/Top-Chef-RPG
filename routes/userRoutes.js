@@ -24,16 +24,29 @@ module.exports = function(app) {
 
   //check a user login
   app.get("/api/users/:username", function(req, res) {
-    console.log("here");
-    console.log(req.params.username);
+    var username = req.params.username;
+    var password = req.params.username;
+  
     db.users.findOne({
       where: {
-        username: req.params.username
+        username: username
       }
     }).then(function(result) {
-      console.log(result);
-      // res.send(result);
-      res.json(result);
+      if(!result){
+        console.log("first send");
+        return res.send("That username does not exist");
+      }
+      console.log(result.dataValues);
+
+      if(password === result.dataValues.password){
+        console.log("logged in");
+        // res.render("game.handlebars");
+      }
+      else{
+        console.log("bad password");
+        return res.send("Username and password do not match");
+      };
+
     });
   });
 
