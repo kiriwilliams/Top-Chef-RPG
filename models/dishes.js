@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Dishes = sequelize.define("dishes", {
+    var Dishes = sequelize.define("Dishes", {
         name: DataTypes.STRING,
         mod_F: DataTypes.INTEGER,      
         mod_J: DataTypes.INTEGER,      
@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
         mod_I: DataTypes.INTEGER,      
     });
     Dishes.associate = function(models) {
-        Dishes.belongsTo(models.environments, {
+        Dishes.belongsTo(models.Environment, {
           foreignKey: {
             allowNull: false
           }

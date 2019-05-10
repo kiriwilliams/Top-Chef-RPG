@@ -1,6 +1,10 @@
 <h3>What will you cook?</h3>
 <ul>
-    {{#each dish}}
-    <li>{{dish_name}}</li>
+    {{#each Dishes}}
+    <li>
+        <button class='dish-btn' data-id={{dataValues.id}}>
+            {{dataValues.name}}
+        </button>
+    </li>
     {{/each}}
 </ul>
