@@ -5,13 +5,13 @@ module.exports = function (app) {
   // add a new user if none exists
   //returns false if username is already taken
   app.post("/api/users", function (req, res) {
-    db.users.findOrCreate({
+    db.User.findOrCreate({
       where: {
         username: req.body.username,
       },
     }).then(([user, created]) => {
       if (created) {
-        db.users.update(
+        db.User.update(
           { password: md5(req.body.password) },
           { where: { username: req.body.username } },
         ).then(function (results) {
@@ -30,14 +30,13 @@ module.exports = function (app) {
 
     var username = req.body.username;
     var password = md5(req.body.password);
-    db.users.findOne({
+    db.User.findOne({
       where: {
         username: username
       }
     }).then(function (result) {
       // console.log(result);
       if (!result) {
-        console.log("first send");
         return res.send("That username does not exist");
       }
       console.log(result.dataValues);
