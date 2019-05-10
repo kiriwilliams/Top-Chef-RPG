@@ -43,6 +43,7 @@ module.exports = function (app) {
 
       if (password === result.dataValues.password) {
         console.log("logged in");
+        req.session.user = username;
         res.json(result);
       }
       else {
