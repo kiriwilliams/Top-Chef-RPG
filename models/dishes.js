@@ -1,12 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
     var Dishes = sequelize.define("Dishes", {
         name: DataTypes.STRING,
-        mod_F: DataTypes.INTEGER,      
-        mod_J: DataTypes.INTEGER,      
-        mod_T: DataTypes.INTEGER,      
-        mod_C: DataTypes.INTEGER,      
-        mod_I: DataTypes.INTEGER,      
-    });
+        mod_F: DataTypes.FLOAT,      
+        mod_J: DataTypes.FLOAT,      
+        mod_T: DataTypes.FLOAT,      
+        mod_C: DataTypes.FLOAT,      
+        mod_I: DataTypes.FLOAT,      
+    },{
+      timestamps: false
+    }
+    );
     Dishes.associate = function(models) {
         Dishes.belongsTo(models.Environment, {
           foreignKey: {

@@ -6,7 +6,10 @@ module.exports = function(sequelize, DataTypes){
         skill_T: DataTypes.STRING,
         skill_C: DataTypes.STRING,
         skill_I: DataTypes.STRING,
-    });
+    },{
+      timestamps: false
+    }
+    );
     Character.associate = function(models) {
         Character.belongsTo(models.User, {
           foreignKey: {
