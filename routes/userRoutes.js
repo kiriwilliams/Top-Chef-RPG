@@ -24,6 +24,7 @@ module.exports = function(app) {
 
   //check a user login
   app.get("/api/users/:username", function(req, res) {
+    console.log("here");
     console.log(req.params.username);
     db.users.findOne({
       where: {
