@@ -20,21 +20,9 @@ module.exports = function(app){
                 id: req.params.id
             }
         }).then(function(result){
-            console.log(result);
+            // console.log("/api/character/:id RESULT "+result);
             res.json(result);
         });
-    });
-
-    //API CALL TO GET CHARACTERS OF A USER
-    app.get("/api/characters/:userId", function(req, res){
-        console.log(req.params.userId);
-        db.Character.findAll({
-            where: {
-                userId: req.params.userId
-            }
-        }).then(function(result){
-            console.log(result);
-        })
     });
 
     // API CALL TO UPDATE THE SKILL OF A CHARACTER 
