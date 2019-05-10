@@ -1,21 +1,21 @@
 -- environment seeds
 INSERT INTO environments (background, flavour_text)
-VALUES ('https://image.freepik.com/free-vector/italian-restaurant-menu-background_23-2147700379.jpg', 'Italy');
+VALUES ('http://clipart-library.com/data_images/118642.png', 'Italy');
 
 INSERT INTO environments (background, flavour_text)
-VALUES ('https://i.ytimg.com/vi/rOLspJc7eQY/maxresdefault.jpg', 'France');
+VALUES ('http://clipart-library.com/newimages/eiffel-tower-clip-art-3.png', 'France');
 
 INSERT INTO environments (background, flavour_text)
-VALUES ('https://media-cdn.tripadvisor.com/media/photo-s/09/83/b7/fd/tony-s-japanese-restaurant.jpg', 'Japan');
+VALUES ('https://www.pngkit.com/png/full/848-8488601_tower-clipart-tokyo-tower.png', 'Japan');
 
 INSERT INTO environments (background, flavour_text)
-VALUES ('https://www.narcity.com/uploads/281670_0a8b3976e44424432ce1b7733ecf4b87b84fefa0.png_facebook.png', 'China');
+VALUES ('http://clipart-library.com/data_images/500681.png', 'China');
 
 INSERT INTO environments (background, flavour_text)
-VALUES ('http://www.wherewhenhow.com/images/turks-caicos-islands/magazine/restaurant-reviews/garam-masala-2014/garam-masala-indian-restaurant-interior-1.jpg', 'India');
+VALUES ('http://clipart-library.com/image_gallery2/Taj-Mahal-PNG.png', 'India');
 
 INSERT INTO environments (background, flavour_text)
-VALUES ('https://www.susanjablon.com/media/gallery/cache/5e06319eda06f020e43594a9c230972d/HK6_Red_Kitchen.jpg', 'Hells kitchen');
+VALUES ('http://itv-america.com/wp-content/uploads/2017/05/img-11-2x-300x212.png', 'Hells kitchen');
 
 -- npc seeds
 INSERT INTO npcs (chef_name, score_threshold, npc_img, EnvironmentId)
