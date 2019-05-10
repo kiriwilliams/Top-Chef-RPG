@@ -44,7 +44,6 @@ module.exports = function (app) {
       if (password === result.dataValues.password) {
         console.log("logged in");
         res.json(result);
-        // res.render("game.handlebars");
       }
       else {
         console.log("bad password");
