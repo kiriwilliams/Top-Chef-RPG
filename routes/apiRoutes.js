@@ -25,6 +25,18 @@ module.exports = function(app){
         });
     });
 
+    //API CALL TO GET CHARACTERS OF A USER
+    app.get("/api/characters/:userId", function(req, res){
+        console.log(req.params.userId);
+        db.characters.findAll({
+            where: {
+                userId: req.params.userId
+            }
+        }).then(function(result){
+            console.log(result);
+        })
+    });
+
     // API CALL TO UPDATE THE SKILL OF A CHARACTER 
     app.put("/api/update/:skill", function(req, res){
         db.characters.update(
