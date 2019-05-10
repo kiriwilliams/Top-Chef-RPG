@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1>Welcome to {{location}}!</h1>
+            <h1>Welcome to {{flavour_text}}!</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            {{user-img}}
+            {{!-- {{user-img}} --}}
         </div>
         <div class="col-md-6">
-            {{enemy-img}}
+            {{> npc}}
         </div>
     </div>
     <div class="row">
@@ -19,7 +19,7 @@
                        {{> stats}}
                 </div>
                 <div class="col-md-6">
-
+                        {{> dishes}}
                 </div>
             </div>
         </div>
@@ -27,4 +27,4 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/game.js"></script>
+<script src="/js/main.js"></script>

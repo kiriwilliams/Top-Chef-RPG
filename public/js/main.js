@@ -28,7 +28,7 @@ $(document).ready(function(){
     function updateEnv(event){
         event.preventDefault();
         
-        $.get("/api/environment/:id")
+        $.get("/api/environment/"+env_id)
             .then(function(data){
                 $(".body").css("background-img", data.background);
                 environment = data;
