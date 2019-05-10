@@ -104,12 +104,15 @@ $("#sign-up").on("click", function (e) {
     password: password
   }).then(function (data) {
     console.log("the data is " + data);
+    if(!data){
+      badUsername();
+    }
   });
 
 });
 
 //adds styling to show user they need to pick a new username
 function badUsername() {
-
+  alert("That username is already taken");
 }
 
