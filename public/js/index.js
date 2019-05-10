@@ -88,8 +88,12 @@ $("#log-in").on("click", function (e) {
     username: username,
     password: password
   }).then(function (result) {
+    alert(result);
     var userID = result.id;
-    window.sessionStorage.setItem("userID",userID);   
+    window.sessionStorage.setItem("userID",userID); 
+    // $.get("/api/character/"+userID, function(result){
+    //   console.log("here");
+    // });
   });
 
 
