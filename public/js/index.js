@@ -91,9 +91,7 @@ $("#log-in").on("click", function (e) {
     alert(result);
     var userID = result.id;
     window.sessionStorage.setItem("userID",userID); 
-    // $.get("/api/character/"+userID, function(result){
-    //   console.log("here");
-    // });
+    window.location.replace("/character-select/"+userID);
   });
 
 
