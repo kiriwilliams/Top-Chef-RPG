@@ -2,6 +2,8 @@
 var username = $("#username");
 var password = $("#password");
 
+
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   loginUser: function (user) {
@@ -76,10 +78,21 @@ var API = {
 $("#log-in").on("click", function (e) {
   e.preventDefault();
   var username = $("#username").val().trim();
+  var password = $("#password").val().trim();
 
-  $.get("/api/users/" + username, function (data) {
-    console.log("log in data " + data);
-  })
+  // $.get("/api/users/" + username + "/" + password, function (data) {
+  //   console.log("log in data " + data);
+  // });
+
+  $.post("/api/login", {
+    username: username,
+    password: password
+  }).then(function (result) {
+    alert(result);
+    var userID = result.id;
+    window.sessionStorage.setItem("userID",userID); 
+    window.location.replace("/character-select/"+userID);
+  });
 
 
 });
@@ -102,9 +115,9 @@ $("#sign-up").on("click", function (e) {
   $.post("/api/users", {
     username: username,
     password: password
-  }).then(function (data) {
-    console.log("the data is " + data);
-    if(!data){
+  }).then(function (result) {
+    console.log("the data is " + result);
+    if(!result){
       badUsername();
     }
   });
