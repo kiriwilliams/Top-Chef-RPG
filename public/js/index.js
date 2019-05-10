@@ -88,10 +88,7 @@ $("#log-in").on("click", function (e) {
     username: username,
     password: password
   }).then(function (result) {
-    console.log("post login then");
-    // console.log("the data is " + result);
     var userID = result.id;
-    console.log("userID is "+userID);
     window.sessionStorage.setItem("userID",userID);   
   });
 
