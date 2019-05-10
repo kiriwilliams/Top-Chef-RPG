@@ -24,10 +24,4 @@ module.exports = function(app) {
       console.log("gamepage loaded with: " + result);
     });
   });
-
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-    console.log("404 page");
-  });
 };
