@@ -25,8 +25,8 @@ module.exports = function (app) {
 
   //check user login (POST)
   app.post("/api/login", function (req, res) {
-    console.log("un: " + req.body.username);
-    console.log("pw: " + req.body.password);
+    // console.log("un: " + req.body.username);
+    // console.log("pw: " + req.body.password);
 
     var username = req.body.username;
     var password = md5(req.body.password);
@@ -35,7 +35,7 @@ module.exports = function (app) {
         username: username
       }
     }).then(function (result) {
-      console.log(result);
+      // console.log(result);
       if (!result) {
         console.log("first send");
         return res.send("That username does not exist");
@@ -44,6 +44,7 @@ module.exports = function (app) {
 
       if (password === result.dataValues.password) {
         console.log("logged in");
+        res.json(result);
         // res.render("game.handlebars");
       }
       else {
@@ -54,6 +55,7 @@ module.exports = function (app) {
     })
 
   });
+
 
 
   //check a user login
