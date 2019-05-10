@@ -26,16 +26,25 @@ module.exports = function (app) {
 
 
   app.get("/character-select/:userId", function (req, res) {
-    db.Character.findAll({
-      where: {
-        userId: req.params.userId
-      }
-    }).then(function (result) {
-      console.log(result);
-      var characters = result;
-      res.render("character-select", characters);
+    // console.log(req);
+    console.log(!req.session.user);
 
-    });
+    if (!req.session.user){
+      res.redirect("/");
+    }
+    else{
+
+      db.Character.findAll({
+        where: {
+          userId: req.params.userId
+        }
+      }).then(function (result) {
+        console.log(result);
+        var characters = result;
+        res.render("character-select", characters);
+  
+      });
+    }
 
   })
 
