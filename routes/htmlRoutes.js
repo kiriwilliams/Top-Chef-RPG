@@ -10,18 +10,17 @@ module.exports = function(app) {
   // Load info about country and NPCs and return it to handlebars page
   app.get("/game/:id", function(req, res) {
     //country grab
-    db.environments.findOne({ 
-      
+    db.Environment.findOne({       
+
       where: {
         id: req.params.id
       },
-      // include: [db.npc]
+      include: [db.Npc, db.Dishes]
 
-      }).then(function(result) {      
-      res.render("game", {
-        info: result
-      });
-      console.log("gamepage loaded with: " + result);
+      }).then(function(result) {
+        var info = result.dataValues;
+      res.render("game", info);
+      console.log(info);
     });
   });
 };
