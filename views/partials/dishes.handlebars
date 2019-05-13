@@ -1,5 +1,6 @@
 <div class= "row">
-    <div class= "col-md-6 offset-md-3">
+
+    <div id= "dish-col"  class= "col-md-6 offset-md-3">
         <h5>Prepare your dish:</h5>
         {{#each Dishes}}
             {{#if selected}}
@@ -16,5 +17,12 @@
         {{/each}}
     </div>
 
+    <div id= "txt-col" class= "col-md-6 offset-md-3">
+        <p id= "npc-txt"></p>
+        <p id= "result-txt"></p>
+        <button id= "end-txt-btn" class= "btn btn-primary">END</button>
+    </div>
+
     <button id= "return-btn" class= "btn btn-primary">RETURN</button>
+
 </div>
