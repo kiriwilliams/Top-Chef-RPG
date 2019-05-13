@@ -1,4 +1,10 @@
 $(document).ready(function(){
+    //PAGE .js GLOBAL VARIABLES
+    var selected_dish = {};
+    var character = {};
+    var npc = {};
+    var environment;
+    var user = {};
 
     //different possible on click events
     $(document).on("click", ".environmentsButtons", updateEnv);
@@ -37,12 +43,7 @@ $(document).ready(function(){
         getNPC(environment.id);
     }
 
-//PAGE .js GLOBAL VARIABLES
-var selected_dish = {};
-var character = {};
-var npc = {};
-var environment;
-var user = {};
+
 
 // PAGE .js FUNCTION TO GET THE DISH MODIFIERS
 function getDish(dish_id){
