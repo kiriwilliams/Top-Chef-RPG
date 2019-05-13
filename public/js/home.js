@@ -5,6 +5,7 @@ $(document).ready(function(){
         e.preventDefault();
         envId = $(this).data("id");
         window.location.replace("/game/" + envId);
+        window.sessionStorage.setItem("environment", envId);
     });
 
     //logout button
