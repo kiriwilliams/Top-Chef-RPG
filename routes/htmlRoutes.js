@@ -24,7 +24,7 @@ module.exports = function (app) {
     });
   });
 
-
+  //loads charselect page, assosciated with user
   app.get("/character-select/:userId", function (req, res) {
     // console.log(req);
     console.log(!req.session.user);
@@ -46,7 +46,20 @@ module.exports = function (app) {
       });
     }
 
-  })
+  });
+
+  //loads home page with character
+  app.get("/home", function (req, res){
+    if (!req.session.user){
+      res.redirect("/");
+    }
+    else if (!req.session.character){
+      res.redirect("/character-select/" + req.session.user);
+    }
+    else {
+        res.render("dash", characters);
+    }
+  });
 
 };
 
