@@ -20,19 +20,18 @@ module.exports = function (app) {
     }).then(function (result) {
       var info = result.dataValues;
       res.render("game", info);
-      console.log(info);
     });
   });
 
-
+  //loads charselect page, assosciated with user
   app.get("/character-select/:userId", function (req, res) {
     // console.log(req);
     console.log(!req.session.user);
 
-    if (!req.session.user){
-      res.redirect("/");
-    }
-    else{
+    // if (!req.session.user){
+    //   res.redirect("/");
+    // }
+    // else{
 
       db.Character.findAll({
         where: {
@@ -44,9 +43,25 @@ module.exports = function (app) {
         res.render("character-select", characters);
   
       });
-    }
+    // }
 
-  })
+  });
+
+  //loads home page with character
+  app.get("/home", function (req, res){
+    // if (!req.session.user){
+    //   res.redirect("/");
+    // }
+    // if (!req.session.character){
+    //   res.redirect("/character-select/" + req.session.user);
+    // }
+    // else {
+      db.Environment.findAll({}).then(function(result){
+        var info = {info: result}
+        res.render("dash", info);
+      });
+    // }
+  });
 
 };
 
