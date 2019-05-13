@@ -41,6 +41,8 @@ module.exports = function (app) {
         // console.log("*** user characters ***")
         // console.log(result);
         var character = {character: result};
+        console.log("session user");
+        console.log(req.session.user);
         res.render("character-select", character);
   
       });
@@ -50,9 +52,11 @@ module.exports = function (app) {
 
   //loads home page with character
   app.get("/home", function (req, res){
-    // if (!req.session.user){
-    //   res.redirect("/");
-    // }
+    console.log("session user");
+    console.log(req.session.user);
+    if (!req.session.user){
+      res.redirect("/");
+    }
     // if (!req.session.character){
     //   res.redirect("/character-select/" + req.session.user);
     // }

@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    if(!window.sessionStorage.getItem("userId")){
+        window.location.replace("/");
+    }
+
     $("#newCharacter").on("click", function(e){
         e.preventDefault();
         $('#characterCreator').modal('show')

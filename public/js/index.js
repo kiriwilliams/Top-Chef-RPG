@@ -89,12 +89,10 @@ $("#log-in").on("click", function (e) {
     password: password
   }).then(function (result) {
     alert(result);
-    var userID = result.id;
+    var userId = result.id;
     window.sessionStorage.setItem("userId",userId); 
     window.location.replace("/character-select/"+userId);
   });
-
-
 });
 
 $("#sign-up").on("click", function (e) {
