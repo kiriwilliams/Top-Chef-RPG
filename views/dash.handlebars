@@ -1,26 +1,31 @@
-<div class="row">
-    <div class="col-12">
-        <h1 id='charName'></h1>
+    <div class="row no-gutters">
+        <div class="col-12">
+            <h1 id='charName'></h1>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-3">
-        <h3>Stats:</h3>
-            <p id='skill_R'></p>
-            <p id='skill_K'></p>
-            <p id='skill_G'></p>
-            <p id='skill_S'></p>
-            <p id='skill_D'></p>
+    <div class="row no-gutters">
+        <div class="col-2">
+            <h3>Stats:</h3>
+                <p id='skill_R'></p>
+                <p id='skill_K'></p>
+                <p id='skill_G'></p>
+                <p id='skill_S'></p>
+                <p id='skill_D'></p>
+        </div>
+        
+        <div class='map'>
+            <img src='https://www.r-graph-gallery.com/wp-content/uploads/2017/12/168_read_shapefile.png' class="globe">
+                {{#each info}}
+                    <button class="environments btn-sm btn-primary" id='country{{dataValues.id}}' data-id={{dataValues.id}}>{{dataValues.flavour_text}}</button>
+                    <br>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="col-1">
+            <button id='logout'>Logout</button>
+        </div>
     </div>
-    <div class="col-8">
-        {{#each info}}
-            <button class="environments" data-id={{dataValues.id}}>{{dataValues.flavour_text}}</button>
-            <br>
-        {{/each}}
-    </div>
-    <div class="col-1">
-        <button id='logout'>Logout</button>
-    </div>
-</div>
+
 <script src="/js/home.js"></script>

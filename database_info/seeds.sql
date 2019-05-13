@@ -15,7 +15,7 @@ INSERT INTO environments (background, flavour_text)
 VALUES ('http://clipart-library.com/image_gallery2/Taj-Mahal-PNG.png', 'India');
 
 INSERT INTO environments (background, flavour_text)
-VALUES ('http://itv-america.com/wp-content/uploads/2017/05/img-11-2x-300x212.png', 'Hells kitchen');
+VALUES ('http://itv-america.com/wp-content/uploads/2017/05/img-11-2x-300x212.png', 'Hell''s Kitchen');
 
 -- npc seeds
 INSERT INTO npcs (chef_name, score_threshold, npc_img, EnvironmentId)
