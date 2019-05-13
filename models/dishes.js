@@ -7,7 +7,6 @@ module.exports = function(sequelize, DataTypes) {
     mod_G: DataTypes.FLOAT,      
     mod_S: DataTypes.FLOAT,      
     mod_D: DataTypes.FLOAT, 
-    selected: DataTypes.BOOLEAN,     
   }, {
     timestamps: false
   });

@@ -3,17 +3,10 @@
     <div id= "dish-col"  class= "col-md-6 offset-md-3">
         <h5>Prepare your dish:</h5>
         {{#each Dishes}}
-            {{#if selected}}
-                <button id= "ded-btn" class="btn btn-dark btn-block text-left" data-id= {{dataValues.id}}>
-                    {{dataValues.name}}
-                    <span class= "badge badge-light float-right mt-1">{{dataValues.skill}}</span>
-                </button>
-            {{else}}
-                <button id= "dish-btn" class="btn btn-primary btn-block text-left" data-id= {{dataValues.id}}>
-                    {{dataValues.name}}
-                    <span class= "badge badge-light float-right mt-1">{{dataValues.skill}}</span>
-                </button>
-            {{/if}}
+            <button id= "dish-btn" class="btn btn-primary btn-block text-left" data-id= {{dataValues.id}}>
+                {{dataValues.name}}
+                <span class= "badge badge-light float-right mt-1">{{dataValues.skill}}</span>
+            </button>
         {{/each}}
     </div>
 
