@@ -16,22 +16,23 @@
   //TO BE ABLE TO LINK BACK TO THE CHARACTER HOMEPAGE. 
   $(document).on("click", "#return-btn", function(e){
       e.preventDefault();
+      alert("please stop Aaron... I know you're trying to break this.");
 
-      $.get("/api/environment/" + envID)
-          .then(function(result){
-              // function to recieve the NPC associated to the environment selected
-              function getNPC( envID ){
-                  $.ajax({
-                      method: "GET",
-                      url: "api/npc/" + envID
-                  }).then(function(result) {
-                      npc = result;
-                  });
-              }
+      // $.get("/api/environment/" + envID)
+      //     .then(function(result){
+      //         // function to recieve the NPC associated to the environment selected
+      //         function getNPC( envID ){
+      //             $.ajax({
+      //                 method: "GET",
+      //                 url: "api/npc/" + envID
+      //             }).then(function(result) {
+      //                 npc = result;
+      //             });
+      //         }
 
-              environment = result;
-              getNPC(environment.id);
-          });
+      //         environment = result;
+      //         getNPC(environment.id);
+      //     });
   });
 
   $(document).on("click", "#dish-btn", function(e){
@@ -54,45 +55,58 @@
           method: "PUT",
           data: obj
       }).then(function(result) {
-        $('#dishes-div').load(document.URL +  ' #dishes-div');
+        $('#dishes-div').load(document.URL +  ' #dishes-div', function() {
+          charTalk("You've dealt " + dish_score + " damage to " + npc.chef_name + ".");
+        });
       });
     }
 
     // USE THE SELECTED DISH AND CHARACTER STATS TO GENERATE DISH RESULT
     function getDishScore (selected_dish, character, npc) {
-      var dish_score = (selected_dish.mod_R * character.skill_R) + (selected_dish.mod_K * character.skill_K) + (selected_dish.mod_G * character.skill_G) + (selected_dish.mod_S * character.skill_S) + (selected_dish.mod_D * character.skill_D);
-      var npc_text = "";
+      dish_score = 6 *( (selected_dish.mod_R * character.skill_R) + (selected_dish.mod_K * character.skill_K) + (selected_dish.mod_G * character.skill_G) + (selected_dish.mod_S * character.skill_S) + (selected_dish.mod_D * character.skill_D) );
 
-      npc.HP = npc.HP - (dish_score * 10);
+      npc.HP = npc.HP - (dish_score);
+      if (npc.HP < 0) {
+        npc.HP = 0;
+      }
+
       var npc_pct_HP = (npc.HP / (npc.score_threshold * 10)) * 100;
 
       $(".progress-bar").attr("aria-valuenow", npc_pct_HP);
       $(".progress-bar").attr("style", "width: " + npc_pct_HP + "%");
 
+      if (npc_pct_HP <= 50) {
+        $(".progress-bar").addClass("bg-warning");
+      }
+
+      if (npc_pct_HP <= 20) {
+        $(".progress-bar").addClass("bg-danger");
+      }
+
       console.log("getDishSchore :" + dish_score);
       console.log("NPC HP: " + npc.HP);        
 
-      if (npc.HP < 0) {
+      if (npc.HP === 0) {
         console.log("In victory you gain significant experience!");
         switch (environment.id) {
           case 1: 
-              npc_text = "ITALIAN IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "Ai! Now that's a spicy meat-a-ball!";
               levelUp(true, "skill_G", "skill_S", "skill_D");
               break;
           case 2:
-              npc_text = "FRENCH IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "FRENCH IRON CHEF DIALOGUE GOES HERE";
               levelUp(true, "skill_R", "skill_K", "skill_G");
               break;
           case 3: 
-              npc_text = "JAPANESE IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "JAPANESE IRON CHEF DIALOGUE GOES HERE";
               levelUp(true, "skill_G", "skill_D", "skill_K");
               break;
           case 4:
-              npc_text = "CHINESE IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "CHINESE IRON CHEF DIALOGUE GOES HERE";
               levelUp(true, "skill_K", "skill_D", "skill_R");
               break;
           case 5:
-              npc_text = "INDIAN IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "INDIAN IRON CHEF DIALOGUE GOES HERE";
               levelUp(true, "skill_S", "skill_S", "skill_R");
               break;
 
@@ -104,23 +118,23 @@
         console.log("Even in defeat you gain valuable experience!");
         switch (environment.id) {
           case 1: 
-              npc_text = "ITALIAN IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "I know plumbers who cook better than you!";
               levelUp(false, "skill_G", "skill_S", "skill_D");
               break;
           case 2:
-              npc_text = "FRENCH IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "FRENCH IRON CHEF DIALOGUE GOES HERE";
               levelUp(false, "skill_R", "skill_K", "skill_G");
               break;
           case 3: 
-              npc_text = "JAPANESE IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "JAPANESE IRON CHEF DIALOGUE GOES HERE";
               levelUp(false, "skill_G", "skill_D", "skill_K");
               break;
           case 4:
-              npc_text = "CHINESE IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "CHINESE IRON CHEF DIALOGUE GOES HERE";
               levelUp(false, "skill_K", "skill_D", "skill_R");
               break;
           case 5:
-              npc_text = "INDIAN IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "INDIAN IRON CHEF DIALOGUE GOES HERE";
               levelUp(false, "skill_S", "skill_S", "skill_R");
               break;
 
@@ -128,7 +142,6 @@
           break;
         };
       }
-          
       selectDish(dishID);
   
     };
@@ -136,12 +149,20 @@
     e.preventDefault();
     if (npc.HP > 0) {
       var selected_dish = {};
+      var dish_score;
       var dishID = $(this).data("id");
   
       selected_btns.push(dishID);
   
       getDish(dishID);  
     }
+  });
+
+  $(document).on("click", "#end-txt-btn", function(e){
+    $("#txt-col").hide();
+    $("#dish-col").show();
+
+    npc.txt = "";
   });
 
   // PAGE .js FUNCTION TO GENERATE A SKILL LEVEL UP
@@ -165,18 +186,10 @@
       skill_D: character.skill_D,
     };
 
-    console.log("----------------------- lvlUP ---------------------");
-    console.log("Changing character stats to the following: ");
-    console.log( obj );
-    console.log("---------------------------------------------------");
-
     $.ajax("/api/update/"+ character.id, {
         method: "PUT",
         data: obj
     }).then(function(result) {
-        console.log("------ lvlUP Result -----");
-        console.log(result);
-        console.log("-------------------------");
     });
   };
 
@@ -209,9 +222,19 @@
       }).then(function(result){
           npc = result;
           npc["HP"] = npc.score_threshold * 10;
+          npc["txt"] = "Hello there! Are you ready to test your culinary skills to this Italian Challenge?";
           console.log(npc);
+
+          charTalk("");
       });
   };
+
+  function charTalk(result_txt) {
+    $("#dish-col").hide();
+    $("#npc-txt").text(npc.chef_name + " : " + npc.txt);
+    $("#result-txt").text(result_txt);
+  }
+
 
   getChar(charID);
   getNPC(envID);
