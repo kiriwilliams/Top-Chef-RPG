@@ -37,7 +37,7 @@ module.exports = function(app){
                 id: req.params.id
             }
         }).then(function(result){
-            console.log("/api/character/:id");
+            console.log("/api/character/:id result is "+ result);
             res.json(result);
         });
     });

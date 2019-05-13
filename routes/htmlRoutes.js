@@ -38,8 +38,8 @@ module.exports = function (app) {
           userId: req.params.userId
         }
       }).then(function (result) {
-        console.log("*** user characters ***")
-        console.log(result);
+        // console.log("*** user characters ***")
+        // console.log(result);
         var character = {character: result};
         res.render("character-select", character);
   
