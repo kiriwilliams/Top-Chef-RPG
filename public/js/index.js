@@ -90,8 +90,8 @@ $("#log-in").on("click", function (e) {
   }).then(function (result) {
     alert(result);
     var userID = result.id;
-    window.sessionStorage.setItem("userID",userID); 
-    window.location.replace("/character-select/"+userID);
+    window.sessionStorage.setItem("userId",userId); 
+    window.location.replace("/character-select/"+userId);
   });
 
 
