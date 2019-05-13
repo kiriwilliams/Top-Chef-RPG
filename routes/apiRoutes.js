@@ -25,7 +25,7 @@ module.exports = function(app){
                 UserId: req.body.UserId
             }).then(function(results) {
                 // console.log(results.dataValues);
-                res.json(result);
+                res.json(results);
             });
         });
     
