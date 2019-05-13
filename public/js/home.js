@@ -11,7 +11,8 @@ $(document).ready(function(){
     //logout button
     $("#logout").on("click", function(e){
         e.preventDefault();
-        //logout function
+        sessionStorage.clear();
+        window.location.replace("/");
     });
 
     //puts the character name at top of page
