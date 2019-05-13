@@ -7,11 +7,13 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-12">
+        Characters
         {{#each character}}
         <div class="row">
-            <div class="card">
-                <h4 class="card-title">{{name}}</h4>
+            <div class="col-10 offset-1">
+                <div class="card">
+                <h4 class="card-title">{{dataValues.name}}</h4>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-4">
@@ -20,15 +22,16 @@
                         <div class="col-8">
                             <h3>Skills</h3>
                             <ul>
-                                <li>{{skill_R}}</li>
-                                <li>{{skill_K}}</li>
-                                <li>{{skill_G}}</li>
-                                <li>{{skill_S}}</li>
-                                <li>{{skill_D}}</li>
+                                <li>{{dataValues.skill_R}}</li>
+                                <li>{{dataValues.skill_K}}</li>
+                                <li>{{dataValues.skill_G}}</li>
+                                <li>{{dataValues.skill_S}}</li>
+                                <li>{{dataValues.skill_D}}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         {{/each}}
