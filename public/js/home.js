@@ -12,15 +12,17 @@ $(document).ready(function(){
     $("#logout").on("click", function(e){
         e.preventDefault();
         //logout function
-        sessionStorage.clear();
+        window.sessionStorage.clear();
         window.location.replace("/");
     });
 
     //puts the character name at top of page
-    $("#charName").text(sessionStorage.getItem("character"))
+    $("#charName").text(window.sessionStorage.getItem("charId"))
 
     //get char stats
-    $.get("/api/character/" + sessionStorage.getItem("character"), function(result){
+    $.get("/api/character/" + window.sessionStorage.getItem("charId"), function(result){
+        console.log(result);
+        $("#charName").text(result.name);
         $("#skill_R").text(result.skill_R);
         $("#skill_K").text(result.skill_K);
         $("#skill_G").text(result.skill_G);
