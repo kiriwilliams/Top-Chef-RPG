@@ -95,3 +95,8 @@ VALUES ('Pork Tenderloin', 0.0, 0.0, 0.0, 0.0, 0.0, 6);
 
 INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
 VALUES ('Calamari', 0.0, 0.0, 0.0, 0.0, 0.0, 6);
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 31177a74c4ec412ec68d4083971a45570d1fccd5

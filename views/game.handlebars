@@ -1,19 +1,21 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 offset-md-2 text-center">
-            <h1>Welcome to {{flavour_text}}!</h1>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <h1>Welcome to {{flavour_text}}!</h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <img src={{background}} class='env-img'>
+        <div class="row">
+            <div class="col-md-3">
+                <img src={{background}} class='env-img'>
+            </div>
+            {{> npc}}
         </div>
-        {{> npc}}
-    </div>
-    <div id= "dishes-div">
-        {{> dishes}}
-    </div>
-</div>
+        <div id= "dishes-div">
+            {{> dishes}}
+        </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/game.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/game.js"></script>
+
+</body>
