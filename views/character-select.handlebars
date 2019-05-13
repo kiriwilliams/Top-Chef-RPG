@@ -7,11 +7,13 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-12">
+        Characters
         {{#each character}}
         <div class="row">
-            <div class="card">
-                <h4 class="card-title">{{name}}</h4>
+            <div class="col-md-4 col-sm-8 mx-auto">
+                <div class="card">
+                <h4 class="card-title">{{dataValues.name}} <button class="btn btn-success selectCharacter" data-id={{dataValues.id}}>Select this Chef</button></h4>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-4">
@@ -20,15 +22,16 @@
                         <div class="col-8">
                             <h3>Skills</h3>
                             <ul>
-                                <li>{{skill_F}}</li>
-                                <li>{{skill_J}}</li>
-                                <li>{{skill_T}}</li>
-                                <li>{{skill_C}}</li>
-                                <li>{{skill_I}}</li>
+                                <li>{{dataValues.skill_R}}</li>
+                                <li>{{dataValues.skill_K}}</li>
+                                <li>{{dataValues.skill_G}}</li>
+                                <li>{{dataValues.skill_S}}</li>
+                                <li>{{dataValues.skill_D}}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         {{/each}}
@@ -50,13 +53,37 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                </div>
-                Make a character
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Save Character</button>
+                <form action="">
+                    <div class="form-group">
+                        <label for="character-name">
+                            <h5>Name</h5>
+                        </label>
+                        <input type="text" class="form-control" id="character-name">
+                    </div>
+                    <h5>Skills</h5>
+                    <div class="form-group">
+                        <label for="skill_R">Roasts</label>
+                        <input type="text" class="form-control" id="skill_R">
+                    </div>
+                    <div class="form-group">
+                        <label for="skill_K">Knife Skills</label>
+                        <input type="text" class="form-control" id="skill_K">
+                    </div>
+                    <div class="form-group">
+                        <label for="skill_G">Grilling</label>
+                        <input type="text" class="form-control" id="skill_G">
+                    </div>
+                    <div class="form-group">
+                        <label for="skill_S">Sauces</label>
+                        <input type="text" class="form-control" id="skill_S">
+                    </div>
+                    <div class="form-group">
+                        <label for="skill_D">Doughs</label>
+                        <input type="text" class="form-control" id="skill_D">
+                    </div>
+                    <button type="submit" id="createCharacter" class="btn btn-primary">Create Character</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </form>
             </div>
         </div>
     </div>

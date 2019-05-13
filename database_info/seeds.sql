@@ -36,55 +36,55 @@ VALUES ('Amara', 10, 'https://bestill.nabomat.no/system/images/bjNHrspWWr54aabag
 INSERT INTO npcs (chef_name, score_threshold, npc_img, EnvironmentId)
 VALUES ('Gordon', 10, 'https://render.fineartamerica.com/images/rendered/default/greeting-card/images-medium-5/gordon-ramsay-art.jpg?&targetx=-21&targety=0&imagewidth=542&imageheight=700&modelwidth=500&modelheight=700&backgroundcolor=FAFCFB&orientation=1', 6);
 
--- dishes seeds (italian)
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Pizza', 0.0, 0.0, 0.0, 0.0, 0.0, 1);
+-- dishes seeds (Italian)
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Bistecca Fiorentina', 'Grilling', 0, 0, 1, 0, 0, 1);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Lasagna', 0.0, 0.0, 0.0, 0.0, 0.0, 1);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Ragu Bolognese', 'Sauces', 0, 0, 0, 1, 0, 1);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Chicken Parmesan', 0.0, 0.0, 0.0, 0.0, 0.0, 1);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Pizza', 'Dough', 0, 0, 0, 0, 1, 1);
 
--- dishes seeds (french)
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('French Fries', 0.0, 0.0, 0.0, 0.0, 0.0, 2);
+-- dishes seeds (French)
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Coq au Vin', 'Roasting', 1, 0, 0, 0, 0, 2);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Snails', 0.0, 0.0, 0.0, 0.0, 0.0, 2);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Salade Nicoise', 'Knife Skills', 0, 1, 0, 0, 0, 2);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Chocolate Souffle', 0.0, 0.0, 0.0, 0.0, 0.0, 2);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Steak au Poivre', 'Dough', 0, 0, 1, 0, 0, 2);
 
--- dishes seeds (japanese)
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Sushi', 0.0, 0.0, 0.0, 0.0, 0.0, 3);
+-- dishes seeds (Japanese)
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Yakitori', 'Grilling', 0, 0, 1, 0, 0, 3);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Miso Soup', 0.0, 0.0, 0.0, 0.0, 0.0, 3);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Ramen', 'Dough', 0, 0, 0, 0, 1, 3);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Soba', 0.0, 0.0, 0.0, 0.0, 0.0, 3);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Sushi', 'Knife Skills', 0, 1, 0, 0, 0, 3);
 
--- dishes seeds (chinese)
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Ramen', 0.0, 0.0, 0.0, 0.0, 0.0, 4);
+-- dishes seeds (Chinese)
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Mushu Pork', 'Knife Skills', 0, 1, 0, 0, 0, 4);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Spring Rolls', 0.0, 0.0, 0.0, 0.0, 0.0, 4);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Xialong Bao', 'Dough', 0, 0, 0, 0, 1, 4);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Kung Pao Chicken', 0.0, 0.0, 0.0, 0.0, 0.0, 4);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Peking Duck', 'Roasting', 1, 0, 0, 0, 0, 4);
 
--- dishes seeds (indian)
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Biryani', 0.0, 0.0, 0.0, 0.0, 0.0, 5);
+-- dishes seeds (Indian)
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Palak Paneer', 'Sauces', 0, 0, 0, 1, 0, 5);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Chicken Masala', 0.0, 0.0, 0.0, 0.0, 0.0, 5);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Chana Daal', 'Sauces', 0, 0, 0, 1, 0, 5);
 
-INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
-VALUES ('Samosa', 0.0, 0.0, 0.0, 0.0, 0.0, 5);
+INSERT INTO dishes (name, skill, mod_R, mod_K, mod_G, mod_S, mod_D, EnvironmentId)
+VALUES ('Tandoori Chicken', 'Roasting', 1, 0, 0, 0, 0, 5);
 
 -- dishes seeds (Gordon)
 INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
@@ -95,8 +95,3 @@ VALUES ('Pork Tenderloin', 0.0, 0.0, 0.0, 0.0, 0.0, 6);
 
 INSERT INTO dishes (name, mod_F, mod_J, mod_T, mod_c, mod_I, EnvironmentId)
 VALUES ('Calamari', 0.0, 0.0, 0.0, 0.0, 0.0, 6);
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 31177a74c4ec412ec68d4083971a45570d1fccd5
