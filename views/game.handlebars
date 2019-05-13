@@ -1,28 +1,17 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-8 offset-md-2 text-center">
             <h1>Welcome to {{flavour_text}}!</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            {{!-- {{user-img}} --}}
+        <div class="col-md-3">
+            <img src={{background}} class='env-img'>
         </div>
-        <div class="col-md-6">
-            {{> npc}}
-        </div>
+        {{> npc}}
     </div>
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="row">
-                <div class="col-md-6">
-                       {{> stats}}
-                </div>
-                <div class="col-md-6">
-                        {{> dishes}}
-                </div>
-            </div>
-        </div>
+    <div id= "dishes-div">
+        {{> dishes}}
     </div>
 </div>
 

@@ -1,18 +1,22 @@
 module.exports = function(sequelize, DataTypes){
-    var Character = sequelize.define("Character", {
-        name: DataTypes.STRING,
-        skill_F: DataTypes.STRING,
-        skill_J: DataTypes.STRING,
-        skill_T: DataTypes.STRING,
-        skill_C: DataTypes.STRING,
-        skill_I: DataTypes.STRING,
+  var Character = sequelize.define("Character", {
+    name: DataTypes.STRING,
+    skill_R: DataTypes.INTEGER,
+    skill_K: DataTypes.INTEGER,
+    skill_G: DataTypes.INTEGER,
+    skill_S: DataTypes.INTEGER,
+    skill_D: DataTypes.INTEGER,
+  }, {
+    timestamps: false
+  });
+
+  Character.associate = function(models) {
+    Character.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
     });
-    Character.associate = function(models) {
-        Character.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      };
-    return Character;
+  };
+
+  return Character;
 }
