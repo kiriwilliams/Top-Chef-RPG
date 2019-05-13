@@ -13,6 +13,23 @@ module.exports = function(app){
         });
     });
 
+        //API CALL TO CREATE A CHARACTER
+        app.post("/api/createCharacter", function(req,res){
+            db.Character.create({
+                name: req.body.name,
+                skill_R: req.body.skill_R,
+                skill_K: req.body.skill_K,
+                skill_G: req.body.skill_G,
+                skill_S: req.body.skill_S,
+                skill_D: req.body.skill_D,
+                UserId: req.body.UserId
+            }).then(function(results) {
+                // console.log(results.dataValues);
+                res.json(results);
+            });
+        });
+    
+
     // API CALL TO GET THE SELECTED CHARACTERS STATS 
     app.get("/api/character/:id", function(req, res) {
         db.Character.findOne({
@@ -20,7 +37,7 @@ module.exports = function(app){
                 id: req.params.id
             }
         }).then(function(result){
-            console.log("/api/character/:id");
+            console.log("/api/character/:id result is "+ result);
             res.json(result);
         });
     });

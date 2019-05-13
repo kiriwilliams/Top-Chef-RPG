@@ -38,9 +38,10 @@ module.exports = function (app) {
           userId: req.params.userId
         }
       }).then(function (result) {
-        console.log(result);
-        var characters = result;
-        res.render("character-select", characters);
+        // console.log("*** user characters ***")
+        // console.log(result);
+        var character = {character: result};
+        res.render("character-select", character);
   
       });
     // }
