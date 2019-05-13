@@ -6,8 +6,16 @@ html,body{
   line-height: 2.5;
 }
 body{
-  background-color: #ccf7ff;
+  background-color: white;
 }
 .btn{
   margin: 3px;
+}
+.npc-img,.env-img{
+  height: 270px;
+  width: 200px;
+}
+h3{
+  color: white;
+  border: solid, black, 1px;
 }
