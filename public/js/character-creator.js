@@ -37,7 +37,9 @@ $(document).ready(function(){
     $(".selectCharacter").on("click", function(e){
         e.preventDefault();
         var charId = $(this).data("id");
-        window.sessionStorage.setItem("charID", charId);
+        console.log(charId);
+        console.log("the charID is: "+charId);
+        window.sessionStorage.setItem("charId", charId);
         window.location.replace("/home");
     })
 
