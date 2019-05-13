@@ -16,23 +16,7 @@
   //TO BE ABLE TO LINK BACK TO THE CHARACTER HOMEPAGE. 
   $(document).on("click", "#return-btn", function(e){
       e.preventDefault();
-      alert("please stop Aaron... I know you're trying to break this.");
-
-      // $.get("/api/environment/" + envID)
-      //     .then(function(result){
-      //         // function to recieve the NPC associated to the environment selected
-      //         function getNPC( envID ){
-      //             $.ajax({
-      //                 method: "GET",
-      //                 url: "api/npc/" + envID
-      //             }).then(function(result) {
-      //                 npc = result;
-      //             });
-      //         }
-
-      //         environment = result;
-      //         getNPC(environment.id);
-      //     });
+      window.location.replace("/home");
   });
 
   $(document).on("click", "#dish-btn", function(e){
@@ -46,20 +30,6 @@
           getDishScore(selected_dish, character, npc);        
       });
     };
-    
-    // UPDATE THE SELECTED BOOLEAN OF THE SELECTED DISH
-    function selectDish (dishID){
-      var obj = { selected: true };
-
-      $.ajax("/api/update/dish/"+ dishID, {
-          method: "PUT",
-          data: obj
-      }).then(function(result) {
-        $('#dishes-div').load(document.URL +  ' #dishes-div', function() {
-          charTalk("You've dealt " + dish_score + " damage to " + npc.chef_name + ".");
-        });
-      });
-    }
 
     // USE THE SELECTED DISH AND CHARACTER STATS TO GENERATE DISH RESULT
     function getDishScore (selected_dish, character, npc) {
@@ -142,7 +112,7 @@
           break;
         };
       }
-      selectDish(dishID);
+      charTalk("You've dealt " + dish_score + " damage to " + npc.chef_name + ".");
   
     };
     
@@ -151,6 +121,8 @@
       var selected_dish = {};
       var dish_score;
       var dishID = $(this).data("id");
+      $(this).attr("id", "ded-btn");
+      $(this).attr("class", "btn btn-dark btn-block text-left")
   
       selected_btns.push(dishID);
   
@@ -230,6 +202,7 @@
   };
 
   function charTalk(result_txt) {
+    $("#txt-col").show();
     $("#dish-col").hide();
     $("#npc-txt").text(npc.chef_name + " : " + npc.txt);
     $("#result-txt").text(result_txt);
