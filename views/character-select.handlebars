@@ -11,9 +11,9 @@
         Characters
         {{#each character}}
         <div class="row">
-            <div class="col-10 offset-1">
+            <div class="col-md-4 col-sm-8 mx-auto">
                 <div class="card">
-                <h4 class="card-title">{{dataValues.name}}</h4>
+                <h4 class="card-title">{{dataValues.name}} <button class="btn btn-success selectCharacter" data-id={{dataValues.id}}>Select this Chef</button></h4>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-4">
