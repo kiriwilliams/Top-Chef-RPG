@@ -4,35 +4,6 @@ var password = $("#password");
 
 
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  loginUser: function (user) {
-    console.log(user)
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(user)
-    });
-  },
-  getExamples: function () {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function (id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
-
-
-
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 // var handleFormSubmit = function (type) {
@@ -73,34 +44,80 @@ var API = {
 //   }
 
 // }
+// var form = $(".needs-validation");
+// $(form).on("submit", function(e){
+//   if(form.checkValidity() === false){
+//     e.preventDefault();
+//     e.stopPropagation();
+//   }
+//   form.addClass("was-validated");
+// }, false);
 
-// Add event listeners to the submit and delete buttons
-$("#log-in").on("click", function (e) {
-  e.preventDefault();
-  var username = $("#username").val().trim();
-  var password = $("#password").val().trim();
+function logIn(userId) {
+  window.sessionStorage.setItem("userId", userId);
+  window.location.replace("/character-select/" + userId);
+}
 
-  // $.get("/api/users/" + username + "/" + password, function (data) {
-  //   console.log("log in data " + data);
-  // });
-
+function checkUser(username, password) {
   $.post("/api/login", {
     username: username,
     password: password
   }).then(function (result) {
-    alert(result);
-    var userID = result.id;
-    window.sessionStorage.setItem("userID",userID); 
-    window.location.replace("/character-select/"+userID);
+    if(typeof result === "string"){
+      console.log("string");
+      console.log("result: "+result);
+      if (result === "badName"){
+        console.log("here");
+        return $("#usernameFeedback").attr("aria-hidden","false").removeAttr("hidden").text("Username does not exist");
+      }
+      else if (result === "badPass"){
+        return $("#passwordFeedback").attr("aria-hidden","false").removeAttr("hidden").text("Username and password do not match");
+      }
+    }
+    var userId = result.id;
+    logIn(userId);
   });
-
-
-});
-
-$("#sign-up").on("click", function (e) {
+};
+// Add event listeners to the submit and delete buttons
+$("#log-in").on("click", function (e) {
+  $("#usernameFeedback").attr("hidden","hidden");
+  $("#passwordFeedback").attr("hidden","hidden");
   e.preventDefault();
   var username = $("#username").val().trim();
   var password = $("#password").val().trim();
+
+  if((username==="") || (password==="")){
+    if(username===""){
+      $("#usernameFeedback").attr("aria-hidden","false").removeAttr("hidden");
+    }
+    if(password===""){
+      $("#passwordFeedback").attr("aria-hidden","false").removeAttr("hidden");
+    }
+    return;
+  }
+
+  checkUser(username, password);
+
+});
+
+
+$("#sign-up-submit").on("click", function (e) {
+  $("#SUusernameFeedback").attr("hidden","hidden");
+  $("#SUpasswordFeedback").attr("hidden","hidden");
+  e.preventDefault();
+  var username = $("#SUusername").val().trim();
+  var password = $("#SUpassword").val().trim();
+
+  if((username==="") || (password==="")){
+    if(username===""){
+      $("#SUusernameFeedback").attr("aria-hidden","false").removeAttr("hidden");
+    }
+    if(password===""){
+      $("#SUpasswordFeedback").attr("aria-hidden","false").removeAttr("hidden");
+    }
+    return;
+  }
+
   // $.ajax("/api/users", {
   //   type: "POST",
   //   data: {
@@ -112,20 +129,25 @@ $("#sign-up").on("click", function (e) {
   //   badUsername();
   // })
 
+  createAccount(username, password);
+
+});
+
+function createAccount(username, password){
   $.post("/api/users", {
     username: username,
     password: password
   }).then(function (result) {
     console.log("the data is " + result);
-    if(!result){
-      badUsername();
+    if (!result) {
+      return badUsername();
     }
+    logIn(username, password);
   });
-
-});
+}
 
 //adds styling to show user they need to pick a new username
 function badUsername() {
-  alert("That username is already taken");
+  return $("#SUusernameFeedback").attr("aria-hidden","false").removeAttr("hidden").text("Username is already in use");
 }
 
