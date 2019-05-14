@@ -11,7 +11,13 @@
   //TO BE ABLE TO LINK BACK TO THE CHARACTER HOMEPAGE. 
   $(document).on("click", "#return-btn", function(e){
       e.preventDefault();
-      window.location.replace("/home");
+
+      if ((environment.id === 6) && (npc.HP === 0)) {
+        window.location.replace("/endgame");
+      }
+      else {
+        window.location.replace("/home");
+      }
   });
 
   $(document).on("click", "#dish-btn", function(e){
