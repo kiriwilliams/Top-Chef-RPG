@@ -63,38 +63,42 @@ function checkUser(username, password) {
     username: username,
     password: password
   }).then(function (result) {
-    alert(result);
+    if(typeof result === "string"){
+      console.log("string");
+      console.log("result: "+result);
+      if (result === "badName"){
+        console.log("here");
+        return $("#usernameFeedback").attr("aria-hidden","false").removeAttr("hidden").text("Username does not exist");
+      }
+      else if (result === "badPass"){
+        return $("#passwordFeedback").attr("aria-hidden","false").removeAttr("hidden").text("Username and password do not match");
+      }
+    }
+
     var userId = result.id;
     logIn(userId);
   });
 };
 // Add event listeners to the submit and delete buttons
 $("#log-in").on("click", function (e) {
+  $("#usernameFeedback").attr("hidden","hidden");
+  $("#passwordFeedback").attr("hidden","hidden");
   e.preventDefault();
   var username = $("#username").val().trim();
   var password = $("#password").val().trim();
-  console.log("username: "+username);
-  console.log("password: "+password);
+
   if((username==="") || (password==="")){
-    console.log("here");
-    return $(".needs-validation").addClass("was-validated");
+    if(username===""){
+      $("#usernameFeedback").attr("aria-hidden","false").removeAttr("hidden");
+    }
+    if(password===""){
+      $("#passwordFeedback").attr("aria-hidden","false").removeAttr("hidden");
+    }
+    return;
   }
-  // $.get("/api/users/" + username + "/" + password, function (data) {
-  //   console.log("log in data " + data);
-  // });
 
   checkUser(username, password);
 
-  // $.post("/api/login", {
-  //   username: username,
-  //   password: password
-  // }).then(function (result) {
-  //   alert(result);
-  //   var userId = result.id;
-  //   logIn(userId);
-    // window.sessionStorage.setItem("userId",userId); 
-    // window.location.replace("/character-select/"+userId);
-  // });
 });
 
 
@@ -102,6 +106,12 @@ $("#sign-up").on("click", function (e) {
   e.preventDefault();
   var username = $("#username").val().trim();
   var password = $("#password").val().trim();
+  
+  if((username==="") || (password==="")){
+
+    return $(".needs-validation").addClass("was-validated");
+  }
+
   // $.ajax("/api/users", {
   //   type: "POST",
   //   data: {
@@ -117,7 +127,7 @@ $("#sign-up").on("click", function (e) {
 
 });
 
-function createAccount(){
+function createAccount(username, password){
   $.post("/api/users", {
     username: username,
     password: password
