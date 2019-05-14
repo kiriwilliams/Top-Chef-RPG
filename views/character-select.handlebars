@@ -1,37 +1,39 @@
-<h3>Select Your Character</h3>
+<h3 class="text-center m-3">Select Your Chef</h3>
 <div class="row">
-    <div class="col-12">
+    <div class="col-md-6 col-sm-8 mx-auto mb-3">
         <!-- Button trigger modal -->
-        <button type="button" id="newCharacter" class="btn btn-primary" data-toggle="modal"
-            data-target="#characterCreator">Create New Character</button>
+        <button type="button" id="newCharacter" class="btn btn-primary w-100" data-toggle="modal"
+            data-target="#characterCreator">Create New Chef</button>
     </div>
 </div>
 <div class="row">
     <div class="col-12">
-        Characters
         {{#each character}}
         <div class="row">
-            <div class="col-md-4 col-sm-8 mx-auto">
-                <div class="card">
-                <h4 class="card-title">{{dataValues.name}} <button class="btn btn-success selectCharacter" data-id={{dataValues.id}}>Select this Chef</button></h4>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-4">
-                            //image
-                        </div>
-                        <div class="col-8">
-                            <h3>Skills</h3>
-                            <ul>
-                                <li>{{dataValues.skill_R}}</li>
-                                <li>{{dataValues.skill_K}}</li>
-                                <li>{{dataValues.skill_G}}</li>
-                                <li>{{dataValues.skill_S}}</li>
-                                <li>{{dataValues.skill_D}}</li>
-                            </ul>
+            <div class="col-md-6 col-sm-8 mx-auto">
+                <div class="card p-3">
+                    <h2 class="card-title">{{dataValues.name}} <button
+                            class="btn btn-success selectCharacter float-right" data-id={{dataValues.id}}>Select this
+                            Chef</button></h2>
+                            
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                //image
+                            </div>
+                            <div class="col-8">
+                                <h3>Skills</h3>
+
+                                Roasting: {{dataValues.skill_R}}<br>
+                                Knife skills: {{dataValues.skill_K}}<br>
+                                Grilling: {{dataValues.skill_G}}<br>
+                                Sauces: {{dataValues.skill_S}}<br>
+                                Doughs: {{dataValues.skill_D}}
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
         {{/each}}
