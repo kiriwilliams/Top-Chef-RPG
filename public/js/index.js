@@ -102,14 +102,21 @@ $("#log-in").on("click", function (e) {
 });
 
 
-$("#sign-up").on("click", function (e) {
+$("#sign-up-submit").on("click", function (e) {
+  $("#SUusernameFeedback").attr("hidden","hidden");
+  $("#SUpasswordFeedback").attr("hidden","hidden");
   e.preventDefault();
-  var username = $("#username").val().trim();
-  var password = $("#password").val().trim();
-  
-  if((username==="") || (password==="")){
+  var username = $("#SUusername").val().trim();
+  var password = $("#SUpassword").val().trim();
 
-    return $(".needs-validation").addClass("was-validated");
+  if((username==="") || (password==="")){
+    if(username===""){
+      $("#SUusernameFeedback").attr("aria-hidden","false").removeAttr("hidden");
+    }
+    if(password===""){
+      $("#SUpasswordFeedback").attr("aria-hidden","false").removeAttr("hidden");
+    }
+    return;
   }
 
   // $.ajax("/api/users", {
@@ -142,6 +149,6 @@ function createAccount(username, password){
 
 //adds styling to show user they need to pick a new username
 function badUsername() {
-  alert("That username is already taken");
+  return $("#SUusernameFeedback").attr("aria-hidden","false").removeAttr("hidden").text("Username is already in use");
 }
 
