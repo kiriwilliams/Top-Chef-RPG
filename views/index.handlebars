@@ -1,42 +1,49 @@
+<div class="cookinBackground"></div>
 <div class="container h-100">
   <div class="row h-100">
     <div class="col-8 offset-2 my-auto">
-<div class="welcomeimg">
-        <img src="/images/chef-hat.png" alt="chef hat image" class="mx-auto">
+      <div class="welcomeimg">
+        <img src="/images/chef-hat.png" alt="chef hat image" class="chefhat">
+        {{!-- <img src="/images/chef-hat.png" alt="chef hat image" class="chefhat"> --}}
         {{!-- <img src="/images/roating-globe.gif" alt="Rotating globe animation" class="float-left"> --}}
       </div>
       <br>
-      <h2>Log in to Top Chef RPG</h2>
-      
-      <form class="clearfix mb-4 needs-validation" novalidate action="POST" role="form" data-toggle="validator"
-        novalidate="true">
-        <div class="form-group">
+      <div class="card">
+        <div class="card-body">
+          <h2>Log in to Top Chef RPG</h2>
 
-          <label for="username">Username</label>
-          <input type="text" id="username" class="form-control" aria-describedby="username" placeholder="Enter Username"
-            required>
-          <div id="usernameFeedback" class="invalidfeedback text-danger" aria-hidden="true" hidden>
-            username is required
-          </div>
+          <form class="clearfix mb-4 needs-validation" novalidate action="POST" role="form" data-toggle="validator"
+            novalidate="true">
+            <div class="form-group">
 
+              <label for="username">Username</label>
+              <input type="text" id="username" class="form-control" aria-describedby="username"
+                placeholder="Enter Username" required>
+              <div id="usernameFeedback" class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                username is required
+              </div>
+
+            </div>
+            <div class="form-group">
+              <div class="help-block with-errors"></div>
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" aria-describedby="password"
+                placeholder="Enter password" required>
+              <div id="passwordFeedback" class="invalidfeedback text-danger" aria-hidden="true" hidden="true">
+                password is required
+              </div>
+
+            </div>
+            <button type="button" id="log-in" class="submit btn btn-primary float-right">Log In</button>
+            <button type="button" id="sign-up" class="btn btn-primary float-right" data-toggle="modal"
+              data-target="#signUp">Sign Up</button>
+          </form>
         </div>
-        <div class="form-group">
-          <div class="help-block with-errors"></div>
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" aria-describedby="password"
-            placeholder="Enter password" required>
-          <div id="passwordFeedback" class="invalidfeedback text-danger" aria-hidden="true" hidden="true">
-            password is required
-          </div>
-
-        </div>
-        <button type="button" id="log-in" class="submit btn btn-primary float-right">Log In</button>
-        <button type="button" id="sign-up" class="btn btn-primary float-right" data-toggle="modal"
-          data-target="#signUp">Sign Up</button>
-      </form>
+      </div>
     </div>
   </div>
 </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="signUpLabel" aria-hidden="true">
