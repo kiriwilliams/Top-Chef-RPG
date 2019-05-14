@@ -1,31 +1,35 @@
-    <div class="row no-gutters">
-        <div class="col-12">
-            <h1 id='charName'></h1>
+    <div class="row no-gutters bottom">
+
+        <div class="col-4 right">
+            <h1 class="text-center chef">Chef</h1>
+            <h2 class="text-center" id='charName'></h2>
+        </div>
+
+        <div class="col-2 pl-2 right border-light">
+            <h2 class="text-center">Stats: </h2>
+
+        </div>
+        <div class="col-2">
+                <p class='skills pl-2 bottom' id='skill_R'></p>
+                <p class='skills pl-2 bottom' id='skill_K'></p>
+                <p class='skills pl-2' id='skill_G'></p>
+        </div>
+        <div class="col-2 right">
+                <p class='skills bottom' id='skill_S'></p>
+                <p class='skills bottom' id='skill_D'></p>
+        </div>
+
+        <div class="col-2 text-right">
+            <button class="btn-primary btn-lg" id='logout'>Logout</button>
         </div>
     </div>
 
-    <div class="row no-gutters">
-        <div class="col-2">
-            <h3>Stats:</h3>
-                <p id='skill_R'></p>
-                <p id='skill_K'></p>
-                <p id='skill_G'></p>
-                <p id='skill_S'></p>
-                <p id='skill_D'></p>
-        </div>
-        
         <div class='map'>
             <img src='https://www.r-graph-gallery.com/wp-content/uploads/2017/12/168_read_shapefile.png' class="globe">
                 {{#each info}}
                     <button class="environments btn-sm btn-primary" id='country{{dataValues.id}}' data-id={{dataValues.id}}>{{dataValues.flavour_text}}</button>
                     <br>
                 {{/each}}
-            </div>
         </div>
-
-        <div class="col-1">
-            <button id='logout'>Logout</button>
-        </div>
-    </div>
 
 <script src="/js/home.js"></script>

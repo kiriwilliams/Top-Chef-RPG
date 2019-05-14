@@ -15,9 +15,17 @@ body{
   height: 270px;
   width: 200px;
 }
-h3{
-  color: white;
-  border: solid, black, 1px;
+.chef{
+  border-bottom: 1px solid gray;
+}
+.right{
+  border-right: 1px solid black;
+}
+.bottom{
+  border-bottom: 1px solid black;
+}
+.skills{
+  font-weight: bold;
 }
 .globe{
   position: absolute;
@@ -62,6 +70,7 @@ h3{
   top: 30%;
   background-color: red;
   border-color: yellow;
+  color:yellow;
 }
 /* india */
 #country5{
@@ -70,6 +79,7 @@ h3{
   top: 38%;
   background-color: orange;
   border-color: green;
+  color:green;
 }
 /* hells kitchen */
 #country6{
