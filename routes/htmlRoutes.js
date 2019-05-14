@@ -68,5 +68,10 @@ module.exports = function (app) {
     // }
   });
 
+  app.get("/endgame", function(req, res){
+    res.render("endgame");
+    console.log("The game has been beaten");
+  });
+
 };
 
