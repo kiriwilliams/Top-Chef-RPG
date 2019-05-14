@@ -15,7 +15,79 @@ body{
   height: 270px;
   width: 200px;
 }
-h3{
-  color: white;
-  border: solid, black, 1px;
+.chef{
+  border-bottom: 1px solid gray;
+}
+.right{
+  border-right: 1px solid black;
+}
+.bottom{
+  border-bottom: 1px solid black;
+}
+.skills{
+  font-weight: bold;
+}
+.globe{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.map{
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+  min-width: 600px;
+}
+/* italy */
+#country1{
+  position: absolute;
+  right: 43%;
+  top: 24%;
+  background-color: green;
+  border-color: red;
+}
+/* france */
+#country2{
+  position: absolute;
+  right: 47%;
+  top: 21%;
+  background-color: blue;
+  border-color: red;
+}
+/* japan */
+#country3{
+  position: absolute;
+  right: 11%;
+  top: 27%;
+  background-color: white;
+  border-color: red;
+  color: red;
+}
+/* china */
+#country4{
+  position: absolute;
+  right: 19%;
+  top: 30%;
+  background-color: red;
+  border-color: yellow;
+  color:yellow;
+}
+/* india */
+#country5{
+  position: absolute;
+  right: 28%;
+  top: 38%;
+  background-color: orange;
+  border-color: green;
+  color:green;
+}
+/* hells kitchen */
+#country6{
+  position: absolute;
+  left: 16%;
+  top: 27%;
+  background-color: black;
+  border-color: darkred;
+  color: orangered;
+
 }
