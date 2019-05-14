@@ -17,7 +17,7 @@ $(document).ready(function(){
         var grill = $("#skill_G").val().trim();
         var sauce = $("#skill_S").val().trim();
         var dough = $("#skill_D").val().trim();
-        var userID = window.sessionStorage.getItem("userID");
+        var userID = window.sessionStorage.getItem("userId");
 
         $.post("/api/createCharacter",{
             name: name,
