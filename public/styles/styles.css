@@ -7,7 +7,7 @@ html,body{
   line-height: 2.5;
 }
 body{
-  background-color: white;
+  background-color: #fff;
 }
 .btn{
   margin: 3px;
@@ -91,4 +91,21 @@ body{
   border-color: darkred;
   color: orangered;
 
+}
+.welcomeimg{
+  text-align: center;
+}
+.chefhat{
+  height: 200px;
+  width: auto;
+}
+.cookinBackground{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url("/images/cocina.gif");
+  opacity: 0.3;
 }
