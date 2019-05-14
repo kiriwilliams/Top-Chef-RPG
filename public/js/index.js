@@ -74,7 +74,6 @@ function checkUser(username, password) {
         return $("#passwordFeedback").attr("aria-hidden","false").removeAttr("hidden").text("Username and password do not match");
       }
     }
-
     var userId = result.id;
     logIn(userId);
   });
