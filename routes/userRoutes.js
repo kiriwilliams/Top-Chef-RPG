@@ -37,7 +37,7 @@ module.exports = function (app) {
     }).then(function (result) {
       // console.log(result);
       if (!result) {
-        return res.send("That username does not exist");
+        return res.send("badName");
       }
       console.log(result.dataValues);
 
@@ -48,7 +48,7 @@ module.exports = function (app) {
       }
       else {
         console.log("bad password");
-        return res.send("Username and password do not match");
+        return res.send("badPass");
       };
 
     })

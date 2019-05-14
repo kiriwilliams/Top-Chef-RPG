@@ -1,5 +1,10 @@
 $(document).ready(function(){
     
+    if(!window.sessionStorage.getItem("userId")){
+        window.location.replace("/");
+    }
+
+
     //go to different environments
     $(".environments").on("click", function(e){
         e.preventDefault();
@@ -12,6 +17,9 @@ $(document).ready(function(){
     $("#logout").on("click", function(e){
         e.preventDefault();
         //logout function
+        $.get("/api/logout", function(result){
+            console.log(result);
+        });
         window.sessionStorage.clear();
         window.location.replace("/");
     });
