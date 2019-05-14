@@ -31,10 +31,10 @@ $(document).ready(function(){
     $.get("/api/character/" + window.sessionStorage.getItem("charId"), function(result){
         console.log(result);
         $("#charName").text(result.name);
-        $("#skill_R").text(result.skill_R);
-        $("#skill_K").text(result.skill_K);
-        $("#skill_G").text(result.skill_G);
-        $("#skill_S").text(result.skill_S);
-        $("#skill_D").text(result.skill_D);
+        $("#skill_R").text("Roast: " + result.skill_R);
+        $("#skill_K").text("Knife Skills: " + result.skill_K);
+        $("#skill_G").text("Grill: " + result.skill_G);
+        $("#skill_S").text("Sauce: " + result.skill_S);
+        $("#skill_D").text("Dough: " + result.skill_D);
     });
 });

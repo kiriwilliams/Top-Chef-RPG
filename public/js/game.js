@@ -4,13 +4,8 @@
   var selected_btns = [];
   var environment;
 
-  var userID = 1;
-  var charID = 1;
-  var envID = 1;
-
-//    var userID = sessionStorage.getItem("userID");
-//    var character = sessionStorage.getItem("char");
-//    var envID = sessionStorage.getItem("envID");
+  var charID = window.sessionStorage.getItem("charId");
+  var envID = window.sessionStorage.getItem("environment");
 
   //DUE TO UNFORSEEN CIRCUMSTANCES THIS BUTTON DOESN"T WORK ANYMORE. NEEDS TO BE FIXED
   //TO BE ABLE TO LINK BACK TO THE CHARACTER HOMEPAGE. 
@@ -64,20 +59,23 @@
               levelUp(true, "skill_G", "skill_S", "skill_D");
               break;
           case 2:
-              npc.txt = "FRENCH IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "Sacre Bleu! Your cooking is amazing!";
               levelUp(true, "skill_R", "skill_K", "skill_G");
               break;
           case 3: 
-              npc.txt = "JAPANESE IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "Nani!?! I've been surpassed by your cooking.";
               levelUp(true, "skill_G", "skill_D", "skill_K");
               break;
           case 4:
-              npc.txt = "CHINESE IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "Sài wēng shī mǎ...";
               levelUp(true, "skill_K", "skill_D", "skill_R");
               break;
           case 5:
-              npc.txt = "INDIAN IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = character.name + ". You are a bold one.";
               levelUp(true, "skill_S", "skill_S", "skill_R");
+              break;
+          case 6:
+              npc.txt = "That's not possible!";
               break;
 
           default:
@@ -92,20 +90,23 @@
               levelUp(false, "skill_G", "skill_S", "skill_D");
               break;
           case 2:
-              npc.txt = "FRENCH IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "Pathétique.";
               levelUp(false, "skill_R", "skill_K", "skill_G");
               break;
           case 3: 
-              npc.txt = "JAPANESE IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "If you want to defeat me, despise me, hate me, and live in an unsightly way... Run, run and cling to your life, and then some day, when you have the same eyes as I do, come before me";
               levelUp(false, "skill_G", "skill_D", "skill_K");
               break;
           case 4:
-              npc.txt = "CHINESE IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "He will win who knows when to fight and when not to fight.";
               levelUp(false, "skill_K", "skill_D", "skill_R");
               break;
           case 5:
-              npc.txt = "INDIAN IRON CHEF DIALOGUE GOES HERE";
+              npc.txt = "Happiness is when what you think, what you say, and what you do are in harmony. Your cooking brings no one happiness.";
               levelUp(false, "skill_S", "skill_S", "skill_R");
+              break;
+          case 6:
+              npc.txt = "Right now, I'd rather eat poodle s*** than put that in my mouth.";
               break;
 
           default:
@@ -194,7 +195,7 @@
       }).then(function(result){
           npc = result;
           npc["HP"] = npc.score_threshold * 10;
-          npc["txt"] = "Hello there! Are you ready to test your culinary skills to this Italian Challenge?";
+          npc["txt"] = "Hello there! Do you believe you are ready to test your culinary skills against me?";
           console.log(npc);
 
           charTalk("");
