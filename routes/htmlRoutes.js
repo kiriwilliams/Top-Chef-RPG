@@ -54,18 +54,18 @@ module.exports = function (app) {
   app.get("/home", function (req, res){
     console.log("session user");
     console.log(req.session.user);
-    if (!req.session.user){
-      res.redirect("/");
-    }
+    // if (!req.session.user){
+    //   res.redirect("/");
+    // }
     // if (!req.session.character){
     //   res.redirect("/character-select/" + req.session.user);
     // }
-    else {
+    // else {
       db.Environment.findAll({}).then(function(result){
         var info = {info: result}
         res.render("dash", info);
       });
-    }
+    // }
   });
 
   app.get("/endgame", function(req, res){
