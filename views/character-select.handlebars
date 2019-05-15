@@ -1,43 +1,53 @@
-<h3>Select Your Character</h3>
-<div class="row">
-    <div class="col-12">
-        <!-- Button trigger modal -->
-        <button type="button" id="newCharacter" class="btn btn-primary" data-toggle="modal"
-            data-target="#characterCreator">Create New Character</button>
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-8 mx-auto mb-3">
+            <h3 class="text-center mx-auto bg-white p-3 display-3 w-100">Select Your Chef</h3>
+            <!-- Button trigger modal -->
+            <button type="button" id="newCharacter" class="btn btn-primary w-100" data-toggle="modal"
+                data-target="#characterCreator">Create New Chef</button>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        Characters
-        {{#each character}}
-        <div class="row">
-            <div class="col-md-4 col-sm-8 mx-auto">
-                <div class="card">
-                <h4 class="card-title">{{dataValues.name}} <button class="btn btn-success selectCharacter" data-id={{dataValues.id}}>Select this Chef</button></h4>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-4">
-                            //image
-                        </div>
-                        <div class="col-8">
-                            <h3>Skills</h3>
-                            <ul>
-                                <li>{{dataValues.skill_R}}</li>
-                                <li>{{dataValues.skill_K}}</li>
-                                <li>{{dataValues.skill_G}}</li>
-                                <li>{{dataValues.skill_S}}</li>
-                                <li>{{dataValues.skill_D}}</li>
-                            </ul>
+    <div class="row">
+        <div class="col-12">
+            {{#each character}}
+            <div class="row">
+                <div class="col-sm-8 mx-auto">
+                    <div class="card p-3 mb-3">
+                        <h2 class="card-title ml-3 display-4 text-capitalize">{{dataValues.name}} <button
+                                class="btn btn-success selectCharacter float-right" data-id={{dataValues.id}}>Select
+                                this
+                                Chef</button></h2>
+
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <h3>Skills</h3>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            Knife skills: {{dataValues.skill_K}}<br>
+                                            Sauces: {{dataValues.skill_S}}<br>
+                                            Doughs: {{dataValues.skill_D}}
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            Roasting: {{dataValues.skill_R}}<br>
+
+                                            Grilling: {{dataValues.skill_G}}<br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
-</div>
 
+</div>
 
 
 
@@ -59,27 +69,46 @@
                             <h5>Name</h5>
                         </label>
                         <input type="text" class="form-control" id="character-name">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a chef name
+                        </div>
                     </div>
                     <h5>Skills</h5>
                     <div class="form-group">
                         <label for="skill_R">Roasts</label>
-                        <input type="text" class="form-control" id="skill_R">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_R">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="skill_K">Knife Skills</label>
-                        <input type="text" class="form-control" id="skill_K">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_K">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
+
                     <div class="form-group">
                         <label for="skill_G">Grilling</label>
-                        <input type="text" class="form-control" id="skill_G">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_G">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="skill_S">Sauces</label>
-                        <input type="text" class="form-control" id="skill_S">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_S">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="skill_D">Doughs</label>
-                        <input type="text" class="form-control" id="skill_D">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_D">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
                     <button type="submit" id="createCharacter" class="btn btn-primary">Create Character</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
