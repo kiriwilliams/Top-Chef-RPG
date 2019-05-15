@@ -1,5 +1,3 @@
-<div class="cookinBackground"></div>
-
 <div class="container">
 
     <div class="row">
@@ -71,27 +69,46 @@
                             <h5>Name</h5>
                         </label>
                         <input type="text" class="form-control" id="character-name">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a chef name
+                        </div>
                     </div>
                     <h5>Skills</h5>
                     <div class="form-group">
                         <label for="skill_R">Roasts</label>
-                        <input type="text" class="form-control" id="skill_R">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_R">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="skill_K">Knife Skills</label>
-                        <input type="text" class="form-control" id="skill_K">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_K">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
+
                     <div class="form-group">
                         <label for="skill_G">Grilling</label>
-                        <input type="text" class="form-control" id="skill_G">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_G">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="skill_S">Sauces</label>
-                        <input type="text" class="form-control" id="skill_S">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_S">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="skill_D">Doughs</label>
-                        <input type="text" class="form-control" id="skill_D">
+                        <input type="number" min="0" max="5" class="form-control" id="skill_D">
+                        <div class="invalidfeedback text-danger" aria-hidden="true" hidden>
+                            Enter a number between 0 and 5
+                        </div>
                     </div>
                     <button type="submit" id="createCharacter" class="btn btn-primary">Create Character</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
