@@ -31,8 +31,8 @@ function checkUser(username, password) {
 };
 // Add event listeners to the submit and delete buttons
 $("#log-in").on("click", function (e) {
-  $("#usernameFeedback").attr("hidden","hidden");
-  $("#passwordFeedback").attr("hidden","hidden");
+  $("#usernameFeedback").attr("hidden","hidden").attr("aria-hidden","true");
+  $("#passwordFeedback").attr("hidden","hidden").attr("aria-hidden","true");
   e.preventDefault();
   var username = $("#username").val().trim();
   var password = $("#password").val().trim();
