@@ -1,45 +1,55 @@
-<h3 class="text-center m-3">Select Your Chef</h3>
-<div class="row">
-    <div class="col-md-6 col-sm-8 mx-auto mb-3">
-        <!-- Button trigger modal -->
-        <button type="button" id="newCharacter" class="btn btn-primary w-100" data-toggle="modal"
-            data-target="#characterCreator">Create New Chef</button>
+<div class="cookinBackground"></div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-8 mx-auto mb-3">
+            <h3 class="text-center mx-auto bg-white p-3 display-3 w-100">Select Your Chef</h3>
+            <!-- Button trigger modal -->
+            <button type="button" id="newCharacter" class="btn btn-primary w-100" data-toggle="modal"
+                data-target="#characterCreator">Create New Chef</button>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        {{#each character}}
-        <div class="row">
-            <div class="col-md-6 col-sm-8 mx-auto">
-                <div class="card p-3">
-                    <h2 class="card-title">{{dataValues.name}} <button
-                            class="btn btn-success selectCharacter float-right" data-id={{dataValues.id}}>Select this
-                            Chef</button></h2>
-                            
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">
-                                //image
-                            </div>
-                            <div class="col-8">
-                                <h3>Skills</h3>
+    <div class="row">
+        <div class="col-12">
+            {{#each character}}
+            <div class="row">
+                <div class="col-sm-8 mx-auto">
+                    <div class="card p-3 mb-3">
+                        <h2 class="card-title ml-3 display-4 text-capitalize">{{dataValues.name}} <button
+                                class="btn btn-success selectCharacter float-right" data-id={{dataValues.id}}>Select
+                                this
+                                Chef</button></h2>
 
-                                Roasting: {{dataValues.skill_R}}<br>
-                                Knife skills: {{dataValues.skill_K}}<br>
-                                Grilling: {{dataValues.skill_G}}<br>
-                                Sauces: {{dataValues.skill_S}}<br>
-                                Doughs: {{dataValues.skill_D}}
+                        <div class="card-body">
+                            <div class="row">
 
+                                <div class="col-12">
+                                    <h3>Skills</h3>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            Knife skills: {{dataValues.skill_K}}<br>
+                                            Sauces: {{dataValues.skill_S}}<br>
+                                            Doughs: {{dataValues.skill_D}}
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            Roasting: {{dataValues.skill_R}}<br>
+
+                                            Grilling: {{dataValues.skill_G}}<br>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
-</div>
 
+</div>
 
 
 
