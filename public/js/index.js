@@ -82,7 +82,7 @@ function createAccount(username, password){
     if (!result) {
       return badUsername();
     }
-    logIn(username, password);
+    checkUser(username, password);
   });
 }
 
