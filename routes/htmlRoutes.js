@@ -60,12 +60,12 @@ module.exports = function (app) {
     // if (!req.session.character){
     //   res.redirect("/character-select/" + req.session.user);
     // }
-    // else {
+    else {
       db.Environment.findAll({}).then(function(result){
         var info = {info: result}
         res.render("dash", info);
       });
-    // }
+    }
   });
 
   app.get("/endgame", function(req, res){
