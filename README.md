@@ -6,6 +6,8 @@ The game contains unique log-in and character creation. Save game states to main
 
 The game is currently in Pre-pre-post-pre ALPHA stage.
 
+## [Play the Game](https://top-chef-rpg.herokuapp.com/)
+
 ## Features
 
 * User password protected log-in
